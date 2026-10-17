@@ -286,7 +286,10 @@ def teacher_screen_login():
             st.session_state['login_type'] = None
             st.rerun()
 
-    st.header('Login using password', text_alignment='center')
+    st.markdown(
+        "<h2 style='text-align:center;'>Login using password</h2>",
+        unsafe_allow_html=True
+    )
     st.space()
     st.space()
 
