@@ -16,7 +16,7 @@ bcrypt
 segno
 pillow
 
-streamlit
+streamlit==1.40.0
 
 librosa
 resemblyzer
