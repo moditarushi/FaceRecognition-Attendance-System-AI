@@ -105,8 +105,8 @@ def student_screen():
         "<h2 style='text-align:center;'>Login using FaceID</h2",
         unsafe_allow_html=True
     )
-    st.space()
-    st.space()
+    st.write("")
+    st.write("")
 
     show_registration = False
     photo_source = st.camera_input("Position your face in the center")
