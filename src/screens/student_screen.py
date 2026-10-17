@@ -93,20 +93,17 @@ def student_screen():
         student_dashboard()
         return
 
-    c1,c2 = st.columns(2, vertical_alignment='center', gap='large')
+    c1, c2 = st.columns(2, vertical_alignment='center', gap='xxlarge')
     with c1:
         header_dashboard()
     with c2:
-        if st.button("Go back to Home", type='secondary', key='loginbackbtn'):
+        if st.button("Go back to Home", type='secondary', key='loginbackbtn', shortcut="control+backspace"):
             st.session_state['login_type'] = None
             st.rerun()
 
-    st.markdown(
-        "<h2 style='text-align:center;'>Login using FaceID</h2",
-        unsafe_allow_html=True
-    )
-    st.write("")
-    st.write("")
+    st.header('Login using FaceID', text_alignment='center')
+    st.space()
+    st.space()
 
     show_registration = False
     photo_source = st.camera_input("Position your face in the center")
