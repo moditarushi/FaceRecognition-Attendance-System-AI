@@ -103,6 +103,8 @@ def student_screen():
 
     st.markdown(
         "<h2 style='text-align:center;'>Login using FaceID</h2",
+        unsafe_allow_html=True
+    )
     st.space()
     st.space()
 
