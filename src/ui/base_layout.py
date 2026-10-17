@@ -102,5 +102,9 @@ def style_base_layout():
             button:hover{
                 transform :scale(1.05)}
         </style>
+        /* Fix heading colors on Streamlit Cloud */
+h1, h2, h3, h4, h5, h6 {
+    color: #000000 !important;
+}
 
                 """, unsafe_allow_html=True)
