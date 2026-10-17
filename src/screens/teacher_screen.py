@@ -106,7 +106,7 @@ def teacher_tab_take_attendance():
         selected_subject_label = st.selectbox('Select Subject', options=list(subject_options.keys()))
 
     with col2:
-        if st.button('Add Photos', type='primary', icon=':material/photo_prints:', width='stretch'):
+        if st.button('Add Photos', type='primary', icon=':material/photo_prints:'):
             add_photos_dialog()
 
     selected_subject_id = subject_options[selected_subject_label]
@@ -302,7 +302,7 @@ def teacher_screen_login():
     btnc1, btnc2 = st.columns(2)
 
     with btnc1:
-        if st.button('Login', icon=':material/passkey:', width='stretch'):
+        if st.button('Login', icon=':material/passkey:'):
             if login_teacher(teacher_username, teacher_pass):
                 st.toast("welcome back!", icon="👋")
                 import time
@@ -312,7 +312,7 @@ def teacher_screen_login():
                 st.error("Invalid username and password combo")
 
     with btnc2:
-        if st.button('Register Instead', type="primary", icon=':material/passkey:', width='stretch'):
+        if st.button('Register Instead', type="primary", icon=':material/passkey:'):
             st.session_state.teacher_login_type = 'register'
 
     footer_dashboard()
@@ -362,7 +362,7 @@ def teacher_screen_register():
     btnc1, btnc2 = st.columns(2)
 
     with btnc1:
-        if st.button('Register now', icon=':material/passkey:', width='stretch'):
+        if st.button('Register now', icon=':material/passkey:'):
             success, message = register_teacher(teacher_username, teacher_name, teacher_pass, teacher_pass_confirm)
             if success:
                 st.success(message)
@@ -374,7 +374,7 @@ def teacher_screen_register():
                 st.error(message)
 
     with btnc2:
-        if st.button('Login Instead', type="primary", icon=':material/passkey:', width='stretch'):
+        if st.button('Login Instead', type="primary", icon=':material/passkey:'):
             st.session_state.teacher_login_type = 'login'
 
     footer_dashboard()
