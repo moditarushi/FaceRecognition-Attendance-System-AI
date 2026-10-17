@@ -290,8 +290,8 @@ def teacher_screen_login():
         "<h2 style='text-align:center;'>Login using password</h2>",
         unsafe_allow_html=True
     )
-    st.space()
-    st.space()
+    st.write("")
+    st.write("")
 
     teacher_username = st.text_input("Enter username", placeholder='ananyaroy')
 
