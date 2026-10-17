@@ -16,9 +16,9 @@ bcrypt
 segno
 pillow
 
-streamlit==1.40.0
+streamlit==1.66.0
 
 librosa
 resemblyzer
 
-altair==4.2.2
+altair==6.3.0
