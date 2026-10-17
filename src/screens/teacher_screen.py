@@ -1,4 +1,4 @@
-import streamlit as st
+mport streamlit as st
 
 from src.ui.base_layout import style_background_dashboard, style_base_layout
 
@@ -39,12 +39,12 @@ def teacher_screen():
 
 def teacher_dashboard():
     teacher_data = st.session_state.teacher_data
-    c1,c2 = st.columns(2, vertical_alignment='center', gap='large')
+    c1, c2 = st.columns(2, vertical_alignment='center', gap='xxlarge')
     with c1:
         header_dashboard()
     with c2:
         st.subheader(f"""Welcome, {teacher_data['name']} """)
-        if st.button("Logout", type='secondary', key='loginbackbtn'):
+        if st.button("Logout", type='secondary', key='loginbackbtn', shortcut="control+backspace"):
             st.session_state['is_logged_in'] = False
             del st.session_state.teacher_data
             st.rerun()
@@ -106,7 +106,7 @@ def teacher_tab_take_attendance():
         selected_subject_label = st.selectbox('Select Subject', options=list(subject_options.keys()))
 
     with col2:
-        if st.button('Add Photos', type='primary', icon=':material/photo_prints:'):
+        if st.button('Add Photos', type='primary', icon=':material/photo_prints:', width='stretch'):
             add_photos_dialog()
 
     selected_subject_id = subject_options[selected_subject_label]
@@ -278,20 +278,17 @@ def login_teacher(username, password):
 
 
 def teacher_screen_login():
-    c1, c2 = st.columns(2, vertical_alignment='center', gap='large')
+    c1, c2 = st.columns(2, vertical_alignment='center', gap='xxlarge')
     with c1:
         header_dashboard()
     with c2:
-        if st.button("Go back to Home", type='secondary', key='loginbackbtn'):
+        if st.button("Go back to Home", type='secondary', key='loginbackbtn', shortcut="control+backspace"):
             st.session_state['login_type'] = None
             st.rerun()
 
-    st.markdown(
-        "<h2 style='text-align:center;'>Login using password</h2>",
-        unsafe_allow_html=True
-    )
-    st.write("")
-    st.write("")
+    st.header('Login using password', text_alignment='center')
+    st.space()
+    st.space()
 
     teacher_username = st.text_input("Enter username", placeholder='ananyaroy')
 
@@ -302,7 +299,7 @@ def teacher_screen_login():
     btnc1, btnc2 = st.columns(2)
 
     with btnc1:
-        if st.button('Login', icon=':material/passkey:'):
+        if st.button('Login', icon=':material/passkey:', shortcut='control+enter', width='stretch'):
             if login_teacher(teacher_username, teacher_pass):
                 st.toast("welcome back!", icon="👋")
                 import time
@@ -312,7 +309,7 @@ def teacher_screen_login():
                 st.error("Invalid username and password combo")
 
     with btnc2:
-        if st.button('Register Instead', type="primary", icon=':material/passkey:'):
+        if st.button('Register Instead', type="primary", icon=':material/passkey:', width='stretch'):
             st.session_state.teacher_login_type = 'register'
 
     footer_dashboard()
@@ -336,11 +333,11 @@ def register_teacher(teacher_username, teacher_name, teacher_pass, teacher_pass_
 
 
 def teacher_screen_register():
-    c1, c2 = st.columns(2, vertical_alignment='center', gap='large')
+    c1, c2 = st.columns(2, vertical_alignment='center', gap='xxlarge')
     with c1:
         header_dashboard()
     with c2:
-        if st.button("Go back to Home", type='secondary', key='loginbackbtn'):
+        if st.button("Go back to Home", type='secondary', key='loginbackbtn', shortcut="control+backspace"):
             st.session_state['login_type'] = None
             st.rerun()
 
@@ -362,7 +359,7 @@ def teacher_screen_register():
     btnc1, btnc2 = st.columns(2)
 
     with btnc1:
-        if st.button('Register now', icon=':material/passkey:'):
+        if st.button('Register now', icon=':material/passkey:', shortcut='control+enter', width='stretch'):
             success, message = register_teacher(teacher_username, teacher_name, teacher_pass, teacher_pass_confirm)
             if success:
                 st.success(message)
@@ -374,7 +371,7 @@ def teacher_screen_register():
                 st.error(message)
 
     with btnc2:
-        if st.button('Login Instead', type="primary", icon=':material/passkey:'):
+        if st.button('Login Instead', type="primary", icon=':material/passkey:', width='stretch'):
             st.session_state.teacher_login_type = 'login'
 
     footer_dashboard()
