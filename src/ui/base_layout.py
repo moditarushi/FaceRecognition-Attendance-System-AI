@@ -67,6 +67,10 @@ def style_base_layout():
                 margin-bottom:0rem !important;
             }
 
+            h1, h2 {
+                    color: #000000 !important;
+            }
+
             h3, h4, p {
                 font-family: 'Outfit', sans-serif;
             }
