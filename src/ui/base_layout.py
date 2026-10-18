@@ -106,6 +106,23 @@ def style_base_layout():
             button:hover{
                 transform :scale(1.05)}
         </style>
+
+        stApp h1,
+        .stApp h2,
+        .stApp h3,
+        .stApp h4,
+        .stApp h5,
+        .stApp h6,
+        .stApp p,
+        .stApp label,
+        .stApp [data-testid="stWidgetLabel"] {
+            color: #111111 !important;
+        }
+
+        .stApp [data-testid="stMarkdownContainer"] p,
+        .stApp [data-testid="stMarkdownContainer"] li {
+            color: #111111 !important;
+        }
     
 
                 """, unsafe_allow_html=True)
