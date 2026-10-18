@@ -123,17 +123,23 @@ def style_base_layout():
 }
 
         
+            
+            /* Make navigation and action buttons readable */
             .stApp button {
-                        color: #ffffff !important;
+                color: #ffffff !important;
             }
-
-            .stApp button[kind="primary"] {
-                        color: #ffffff !important;
-            }
-
+            
+            /* Keep text white on black buttons */
             .stApp button[kind="secondary"] {
-                        color: #111111 !important;
+                color: #ffffff !important;
             }
+            
+            /* Make labels inside buttons readable */
+            .stApp button p,
+            .stApp button span {
+                color: inherit !important;
+            }
+
 
 
         </style>
