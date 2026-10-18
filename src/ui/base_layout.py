@@ -122,6 +122,20 @@ def style_base_layout():
                     color: #111111 !important;
 }
 
+        
+            .stApp button {
+                        color: #ffffff !important;
+            }
+
+            .stApp button[kind="primary"] {
+                        color: #ffffff !important;
+            }
+
+            .stApp button[kind="secondary"] {
+                        color: #111111 !important;
+            }
+
+
         </style>
 
                 """, unsafe_allow_html=True)
