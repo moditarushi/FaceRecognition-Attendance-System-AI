@@ -14,6 +14,7 @@ def main():
     )
     if 'login_type' not in st.session_state:
         st.session_state['login_type'] = None
+        st.write("Current login_type:", st.session_state['login_type'])
 
     match st.session_state['login_type']:
         case 'teacher':
