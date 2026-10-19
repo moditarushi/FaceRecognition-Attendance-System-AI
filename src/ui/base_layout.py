@@ -118,6 +118,28 @@ def style_base_layout():
                     color: #111111 !important;
 }
 
+                        /* Fix text visibility on all buttons */
+            .stApp button {
+                color: #FFFFFF !important;
+            }
+            
+            /* Primary buttons */
+            .stApp button[kind="primary"] {
+                background-color: #5865F2 !important;
+                color: #FFFFFF !important;
+            }
+            
+            /* Secondary buttons */
+            .stApp button[kind="secondary"] {
+                background-color: #EB459E !important;
+                color: #FFFFFF !important;
+            }
+            
+            /* Unenroll / other dark buttons */
+            .stApp button[kind="tertiary"] {
+                background-color: #111111 !important;
+                color: #FFFFFF !important;
+            }
 
 
         </style>
