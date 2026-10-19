@@ -21,18 +21,40 @@ def style_background_home():
 
 
 def style_background_dashboard():
-
     st.markdown("""
         <style>
+        .stApp {
+            background-color: #E0E3FF !important;
+        }
 
-                .stApp {
-                    background: #E0E3FF !important;
-                }
+        div[data-testid="stVerticalBlockBorderWrapper"] {
+            background-color: #FFFFFF !important;
+            border: 1px solid #222222 !important;
+            border-radius: 22px !important;
+            padding: 20px !important;
+        }
 
+        div[data-testid="stWidgetLabel"] p,
+        .stApp p,
+        .stApp label {
+            color: #111111 !important;
+        }
+
+        button[kind="primary"] {
+            background-color: #5865F2 !important;
+            color: #FFFFFF !important;
+            border: none !important;
+            border-radius: 18px !important;
+        }
+
+        button[kind="secondary"] {
+            background-color: #EB459E !important;
+            color: #FFFFFF !important;
+            border: none !important;
+            border-radius: 18px !important;
+        }
         </style>
-
-                """, unsafe_allow_html=True)
-
+    """, unsafe_allow_html=True)
 
 def style_base_layout():
 
