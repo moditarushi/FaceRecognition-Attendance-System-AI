@@ -16,14 +16,47 @@ def enroll_dialog():
             if res.data:
                 subject = res.data[0]
                 student_id = st.session_state.student_data['student_id']
-
-                check = supabase.table('subject_students').select('*').eq('subject_id', subject['subject_id']).eq('student_id', student_id).execute()
-                if check.data:
-                    st.warning('You are already enrolled in this program')
+            
+            # Get all subjects this student is already enrolled in
+            student_enrollments = (
+                supabase.table("subject_students")
+                .select("subject_id")
+                .eq("student_id", student_id)
+                .execute()
+            )
+            
+            enrolled_subject_ids = [
+                row["subject_id"] for row in student_enrollments.data
+            ]
+            
+            if enrolled_subject_ids:
+                # Find whether any enrollment uses the same subject code
+                existing_subjects = (
+                    supabase.table("subjects")
+                    .select("subject_id, subject_code, section")
+                    .in_("subject_id", enrolled_subject_ids)
+                    .eq("subject_code", subject["subject_code"])
+                    .execute()
+                )
+            
+                if existing_subjects.data:
+                    existing_section = existing_subjects.data[0]["section"]
+            
+                    if existing_section == subject["section"]:
+                        st.warning("You are already enrolled in this section.")
+                    else:
+                        st.error(
+                            f"You are already enrolled in Section {existing_section} "
+                            f"of this subject. You cannot enroll in Section "
+                            f"{subject['section']} as well."
+                        )
                 else:
-                    enroll_student_to_subject(student_id, subject['subject_id'])
-                    st.success('Succesfully enrolled!')
+                    enroll_student_to_subject(student_id, subject["subject_id"])
+                    st.success("Successfully enrolled!")
                     time.sleep(1)
                     st.rerun()
-        else:
-            st.warning('Please enter a subject code')
+            else:
+                enroll_student_to_subject(student_id, subject["subject_id"])
+                st.success("Successfully enrolled!")
+                time.sleep(1)
+                st.rerun()
